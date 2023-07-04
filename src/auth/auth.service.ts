@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Req } from "@nestjs/common";
 import { User, Note} from "@prisma/client"
 import { PrismaService } from "../prisma/prisma.service";
 
@@ -9,7 +9,7 @@ export class AuthService {
 
     }
 
-    register() {
+    register(@Req() request: Request) {
         return {
             message: 'register a new user'
         };
