@@ -1,7 +1,14 @@
-import { Controller} from "@nestjs/common";
+import { Controller, Get, UseGuards, Req} from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+import { Request } from "express";
 
-@Controller()
+@Controller('users')
 
 export class UserController {
-    
+    @UseGuards(AuthGuard('jwt'))
+    @Get('me')
+    me(@Req() request: Request){
+        // console.log(request.user);
+        return request.user
+    }
 }
