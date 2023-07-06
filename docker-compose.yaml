@@ -19,3 +19,5 @@ networks:
 #Create container,network,...from "docker composer" file:
 #-d:  detach background mode
 #docker compose up -d
+#create cau lenh trong scripts files package.json
+#docker compose rm vitality-yoga-database --stop --force --volumes
