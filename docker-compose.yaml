@@ -1,0 +1,23 @@
+# we create a Docker image from source code
+version: '3.8'
+services:
+  vitality-yoga-database:
+    image: postgres:15.0
+    container_name: vitality-yoga-database
+    ports:
+     - 5434:5432 #{port in myHost(PC)}: {port in Container}
+     #environment variables, linke: db's username, password,...
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abc123456789
+      POSTGRES_DB: testdb
+    networks:
+      - nestjs-network
+networks:
+  nestjs-network:
+    name: vitality-yoga-network
+#Create container,network,...from "docker composer" file:
+#-d:  detach background mode
+#docker compose up -d
+#create cau lenh trong scripts files package.json
+#docker compose rm vitality-yoga-database --stop --force --volumes
