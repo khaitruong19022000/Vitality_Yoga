@@ -13,6 +13,19 @@ services:
       POSTGRES_DB: testdb
     networks:
       - nestjs-network
+  # create another database for testing
+  vitality-yoga-test-database:
+    image: postgres:15.0
+    container_name: vitality-yoga-test-database
+    ports:
+     - 5435:5432 #{port in myHost(PC)}: {port in Container}
+     #environment variables, linke: db's username, password,...
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abc123456789
+      POSTGRES_DB: testdb
+    networks:
+      - nestjs-network
 networks:
   nestjs-network:
     name: vitality-yoga-network
